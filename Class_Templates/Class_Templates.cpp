@@ -22,7 +22,7 @@ class Array {
 			cin.ignore(32767, '\n');
 			cout << "error" << endl;
 
-			cout << promt;
+			cout << typeid(value).name() << ": ";
 			cin >> value;
 		}
 		string endLine;
