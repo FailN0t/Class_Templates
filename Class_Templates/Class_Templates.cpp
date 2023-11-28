@@ -13,12 +13,27 @@ template<class T>
 class Array {
 	T* array;
 	int size;
+	void setValue(string promt, T& value) {
+		cout << promt;
+		cin >> value;
+		while (cin.fail()) {
+			cin.clear();
+			cin.ignore(32767, '\n');
+			cout << "error" << endl;
+
+			cout << promt;
+			cin >> value;
+		}
+		string endLine;
+		getline(cin, endLine);
+	}
 public:
 	Array(int size) :array{ new T[size] }, size{ size } {}
 	Array() :Array(5) {}
 	int getSize() {
 		return size;
 	}
+	
 };
 
 int main()
