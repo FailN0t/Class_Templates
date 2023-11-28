@@ -15,7 +15,7 @@ void sort(T array[], size_t size) {
 	{
 		for (int j = 0; j < i; j++) {
 			if (array[j] > array[j + 1]) {
-				swap(array[j], array[j + 1])
+				swap(array[j], array[j + 1]);
 			}
 		}
 	}
@@ -30,7 +30,10 @@ void display(T array[], size_t size) {
 
 int main()
 {
-	
+	const int i = 5;
+	int m[i] = { 6,5,3,2,1};
+
+	display(m, i);
 }
 
 // Запуск программы: CTRL+F5 или меню "Отладка" > "Запуск без отладки"
