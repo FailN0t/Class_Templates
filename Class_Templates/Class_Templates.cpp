@@ -3,9 +3,16 @@
 
 #include <iostream>
 using namespace std;
+
+template <class T>
+T square(T number) {
+	T result = number * number;
+	return result;
+}
+
 int main()
 {
-
+	cout << square(5);
 }
 
 // Запуск программы: CTRL+F5 или меню "Отладка" > "Запуск без отладки"
