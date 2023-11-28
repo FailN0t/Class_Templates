@@ -32,10 +32,15 @@ int main()
 {
 	const int i = 5;
 	size_t j = 5;
-	int m[i]{3,6,5,2,1};
+	int m[i]{ 3,6,5,2,1 };
+	double m2[i]{ 7.5, 5.3, 5.3, 4, 5.2 };
+	string str[]{"one", "two", "three"};
 	display(m, j);
 	sort(m, 5);
 	display(m, j);
+	display(str, 3);
+	sort(str, 3);
+	display(str, 3);
 }
 
 // Запуск программы: CTRL+F5 или меню "Отладка" > "Запуск без отладки"
