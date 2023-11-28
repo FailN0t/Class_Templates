@@ -10,8 +10,8 @@ T square(T number) {
 	return result;
 }
 template <class T>
-void sort(T array[], size_t size) {
-	for (size_t i = size -1; i < 0; i++)
+void sort(T array, size_t size) {
+	for (size_t i = size-1; i > 0; i--)
 	{
 		for (int j = 0; j < i; j++) {
 			if (array[j] > array[j + 1]) {
@@ -31,9 +31,11 @@ void display(T array[], size_t size) {
 int main()
 {
 	const int i = 5;
-	int m[i] = { 6,5,3,2,1};
-
-	display(m, i);
+	size_t j = 5;
+	int m[i]{3,6,5,2,1};
+	display(m, j);
+	sort(m, 5);
+	display(m, j);
 }
 
 // Запуск программы: CTRL+F5 или меню "Отладка" > "Запуск без отладки"
