@@ -6,6 +6,7 @@
 #include <vector>
 #include <conio.h>
 #include <time.h>
+#include <typeinfo>
 using namespace std;
 
 template<class T>
@@ -13,8 +14,8 @@ template<class T>
 class Array {
 	T* array;
 	int size;
-	void setValue(string promt, T& value) {
-		cout << promt;
+	void setValue(T& value) {
+		cout << typeid(value).name() << ": ";
 		cin >> value;
 		while (cin.fail()) {
 			cin.clear();
@@ -33,13 +34,26 @@ public:
 	int getSize() {
 		return size;
 	}
-	
+	void setArray() {
+		for (size_t i = 0; i < size; i++)
+		{
+			setValue(array[i]);
+		}
+	}
+	void display() {
+		for (size_t i = 0; i < size; i++)
+		{
+			cout << array[i] << ", ";
+		}cout << endl;
+	}
 };
 
 int main()
 {
 	srand(time(NULL));
 	Array<int> array(5);
+	array.setArray();
+	array.display();
 }
 
 // Запуск программы: CTRL+F5 или меню "Отладка" > "Запуск без отладки"
