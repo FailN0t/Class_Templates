@@ -31,6 +31,14 @@ class Array {
 public:
 	Array(int size) :array{ new T[size] }, size{ size } {}
 	Array() :Array(5) {}
+	Array(const Array& array) {
+		this->size = array.size;
+		this->array = new T[size];
+		for (size_t i = 0; i < size; i++)
+		{
+			this->array[i] = array.array[i];
+		}
+	}
 	int getSize() {
 		return size;
 	}
@@ -45,6 +53,13 @@ public:
 		{
 			cout << array[i] << ", ";
 		}cout << endl;
+	}
+	friend ostream& operator<< (ostream& ost, Array& array) {
+		for (size_t i = 0; i < array.size; i++)
+		{
+			ost << array.array[i] << ", ";
+		}ost << endl;
+		return ost;
 	}
 	void sort() {
 		for (size_t i = size - 1; i > 0; i--)
@@ -61,9 +76,19 @@ public:
 int main()
 {
 	srand(time(NULL));
-	Array<int> array(5);
+	Array<int> array(4);
 	array.setArray();
 	array.display();
+	array.sort();
+	array.display();
+	Array<string> array2(4);
+	array2.setArray();
+	array2.display();
+	array2.sort();
+	array2.display();
+	Array<string> array3{ array2 };
+	array3.display();
+	cout << array3;
 }
 
 // Запуск программы: CTRL+F5 или меню "Отладка" > "Запуск без отладки"
