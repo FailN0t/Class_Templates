@@ -9,10 +9,28 @@ T square(T number) {
 	T result = number * number;
 	return result;
 }
+template <class T>
+void sort(T array[], size_t size) {
+	for (size_t i = size -1; i < 0; i++)
+	{
+		for (int j = 0; j < i; j++) {
+			if (array[j] > array[j + 1]) {
+				swap(array[j], array[j + 1])
+			}
+		}
+	}
+}
+template <class T>
+void display(T array[], size_t size) {
+	for (size_t i = 0; i < size; i++)
+	{
+		cout << array[i] << ", ";
+	}cout << endl;
+}
 
 int main()
 {
-	cout << square(5);
+	
 }
 
 // Запуск программы: CTRL+F5 или меню "Отладка" > "Запуск без отладки"
