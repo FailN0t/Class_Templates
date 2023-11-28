@@ -10,7 +10,6 @@
 using namespace std;
 
 template<class T>
-
 class Array {
 	T* array;
 	int size;
