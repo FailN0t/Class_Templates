@@ -5,34 +5,26 @@
 #include <string>
 #include <vector>
 #include <conio.h>
+#include <time.h>
 using namespace std;
 
 template<class T>
-void getValue(string promt, T& value) {
-	cout << promt;
-	cin >> value;
-	while (cin.fail()) {
-		cin.clear();
-		cin.ignore(32767, '\n');
-		cout << "error" << endl;
 
-		cout << promt;
-		cin >> value;
+class Array {
+	T* array;
+	int size;
+public:
+	Array(int size) :array{ new T[size] }, size{ size } {}
+	Array() :Array(5) {}
+	int getSize() {
+		return size;
 	}
-	string endLine;
-	getline(cin, endLine);
-}
+};
 
 int main()
 {
-	int number;
-	getValue("number: ", number);
-
-	string name;
-	getValue("name: ", name);
-
-	cout << number << endl;
-	cout << name << endl;
+	srand(time(NULL));
+	Array<int> array(5);
 }
 
 // Запуск программы: CTRL+F5 или меню "Отладка" > "Запуск без отладки"
