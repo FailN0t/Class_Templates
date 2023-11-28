@@ -2,45 +2,37 @@
 //
 
 #include <iostream>
+#include <string>
+#include <vector>
+#include <conio.h>
 using namespace std;
 
-template <class T>
-T square(T number) {
-	T result = number * number;
-	return result;
-}
-template <class T>
-void sort(T array, size_t size) {
-	for (size_t i = size-1; i > 0; i--)
-	{
-		for (int j = 0; j < i; j++) {
-			if (array[j] > array[j + 1]) {
-				swap(array[j], array[j + 1]);
-			}
-		}
+template<class T>
+void getValue(string promt, T& value) {
+	cout << promt;
+	cin >> value;
+	while (cin.fail()) {
+		cin.clear();
+		cin.ignore(32767, '\n');
+		cout << "error" << endl;
+
+		cout << promt;
+		cin >> value;
 	}
-}
-template <class T>
-void display(T array[], size_t size) {
-	for (size_t i = 0; i < size; i++)
-	{
-		cout << array[i] << ", ";
-	}cout << endl;
+	string endLine;
+	getline(cin, endLine);
 }
 
 int main()
 {
-	const int i = 5;
-	size_t j = 5;
-	int m[i]{ 3,6,5,2,1 };
-	double m2[i]{ 7.5, 5.3, 5.3, 4, 5.2 };
-	string str[]{"one", "two", "three"};
-	display(m, j);
-	sort(m, 5);
-	display(m, j);
-	display(str, 3);
-	sort(str, 3);
-	display(str, 3);
+	int number;
+	getValue("number: ", number);
+
+	string name;
+	getValue("name: ", name);
+
+	cout << number << endl;
+	cout << name << endl;
 }
 
 // Запуск программы: CTRL+F5 или меню "Отладка" > "Запуск без отладки"
